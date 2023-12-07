@@ -1,0 +1,454 @@
+/* Selector universal */
+*{
+    margin: 0; 
+    padding: 0;
+}
+
+:root {
+    --violet: #820A54;
+    --green: #4F9673;
+    --dark-green: #234132;
+    --light-green: #9CCEAC;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 175px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.logo-header-img{
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+.header{
+    background-color: var(--light-green);
+    position: sticky;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 9999;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center; 
+    height: 60px;
+    padding: 0px 50px;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    font-size: 1em;
+}
+
+.nav-links li a{
+    color: var(--dark-green);
+    text-decoration: none;
+}
+
+li{
+    padding: 2px;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+li:hover{
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.buttons-btn{
+    font-size: 1em;
+    font-weight: 400;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    justify-content: right;
+}
+
+.buttons-btn a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#btn-vervio1{
+    padding: 10px;
+    border-radius: 8px;
+    margin-right: 20px;
+    background-color: var(--violet);
+    transition: 0.5s;
+}
+
+#btn-vervio1:hover{
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+a:hover{
+    color: var(--violet);
+}
+
+#btn-vervio2{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--green);
+    transition: 0.5s;
+}
+
+#btn-vervio2:hover{
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+#top {
+    background-image: url('../Img/top_image-min.png');
+    background-size: cover;
+    background-position: center;
+    height: 30vw;
+}
+
+.hd-logo {
+    height: 20vw;
+    margin-top: 3em;
+}
+
+.logo {
+    width: 43vw;
+}
+
+.page-title {
+    margin-top: 5vw;
+    margin-bottom: 4vw;
+}
+
+.categoria-amig {
+    width: 20vw;
+    border-radius: 1em;
+    align-items: center;
+    filter: opacity(.5);
+}
+
+.categoria-amig:hover {
+    width: 20vw;
+    border-radius: 1em;
+    align-items:center;
+    -webkit-transform: scale(0.85);transform: scale(0.85);
+    filter: opacity(1);
+}
+
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    grid-template-rows: repeat(1, 1fr);
+    column-gap: 1em;
+    justify-content: center;
+    justify-items: center;
+    padding: 0 3vw 0 3vw;
+}
+
+.tipos-productos {
+    align-content: center;
+}
+
+.card-categorias-txt {
+    color: var(--dark-green);
+    font-size: 1.3em;
+    font-weight: 300;
+    text-align: center;
+}
+
+.card-categorias-txt p{
+    margin-top: 15px;
+    padding: 8%;
+    line-height: 1.2;
+    color: var(--dark-green);
+    font-size: 1em;
+    font-weight: 200;
+    text-decoration:none;
+}
+
+.producto-amigurumis {
+    display: flex; 
+    justify-content: space-between;
+    padding: 5%;
+    gap: 10px;
+}
+   
+.producto-amigurumis img {
+    width: 20%; 
+    height: auto;
+}
+
+h1{
+    color: var(--violet);
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.article-txt{
+    display: flex;
+    align-items: center;
+}
+       
+.article-txt img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: 22%;
+    border-radius: 5%;
+}
+       
+.article-txt p {
+
+    display:grid;
+    text-align: left;
+    margin-top:-21%;
+    margin-left:14% ;
+    color: var(--green);
+    margin-bottom: 1em;
+}
+
+
+#footer{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1;
+    justify-content: center;
+    background-color: var(--green);
+    padding: 3em 0 3em 0;
+    margin-top: 3em;
+    width: 100%;
+}
+
+.footer-logo {
+    background-color: #fff; 
+    border-radius: 1em; 
+    width: 353px;
+    padding: 1em;
+    margin-bottom: 3em;
+}
+
+#img-footer {
+    width: 282px;
+}
+
+.footer-menu {
+    width: 100%;
+    display: block;
+}
+
+#footer-links {
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+
+#footer-links li>a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 2em;
+}
+
+#social-media-footer {
+    font-size: 1em;
+    color: #fff;
+    text-align: center;
+}
+
+#copy-footer {
+    font-size: 0.7em;
+    color: #fff;
+    text-align: center;
+    margin-top: 5em;
+}
+
+/* PHONES */
+@media(max-width:992px){
+    .logo-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 255px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .logo {
+        width: 60vw;
+    }
+
+    .hd-logo {
+        height: 30vw;
+        margin-top: 3em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;    
+        align-items: center; 
+        height: 100px;
+        padding: 10px 0px 10px; 
+    }
+    
+    .nav-links{
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-wrap: wrap;
+        font-size: 1em;
+    }
+    
+    .nav-links li a{
+        color: var(--dark-green);
+        text-decoration: none;
+    }
+    
+    .buttons-btn{
+        display: flex;
+        justify-content:left;
+        font-size: 1em;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .categorias-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 1em;
+        row-gap: 4.5em;
+        justify-content: center;
+        justify-items: center;
+        padding: 0 1vw 0 1vw;
+    }
+
+    .categoria-amig {
+        width: 40vw;
+        border-radius: 1em;
+        align-items: center;
+        margin-bottom: 0.8em;
+    }
+
+    .footer-logo {
+        background-color: #fff; 
+        border-radius: 1em; 
+        width: 300px;
+        padding: 1em;
+        margin-bottom: 3em;
+    }
+    
+    #img-footer {
+        width: 295px;
+    }
+
+}
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .logo-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 255px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .logo {
+        width: 60vw;
+    }
+
+    .hd-logo {
+        height: 30vw;
+        margin-top: 3em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;    
+        align-items: center; 
+        height: 100px;
+        padding: 10px 0px 10px; 
+    }
+    
+    .nav-links{
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-wrap: wrap;
+        font-size: 1em;
+    }
+    
+    .nav-links li a{
+        color: var(--dark-green);
+        text-decoration: none;
+    }
+    
+    .buttons-btn{
+        display: flex;
+        justify-content:left;
+        font-size: 1em;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .categorias-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 1em;
+        row-gap: 4.5em;
+        justify-content: center;
+        justify-items: center;
+        padding: 0 1vw 0 1vw;
+    }
+
+    .categoria-amig {
+        width: 40vw;
+        border-radius: 1em;
+        align-items:center;
+        margin-bottom: 0.8em;
+    }
+
+    .footer-logo {
+        background-color: #fff; 
+        border-radius: 1em; 
+        width: 300px;
+        padding: 1em;
+        margin-bottom: 3em;
+    }
+    
+    #img-footer {
+        width: 295px;
+    }
+    
+}

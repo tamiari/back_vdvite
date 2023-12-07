@@ -24,55 +24,55 @@ async function fetchDataWithFile(url, method, formData) {
     return await response.json();
 }
 
-document.getElementById('btn-add-movie').addEventListener('click', async function () {
-    const idMovie = document.querySelector('#id_movie');
-    const title = document.querySelector('#title').value;
-    const director = document.querySelector('#director').value;
-    const releaseDate = document.querySelector('#release_date').value;
+document.getElementById('btn-add-product').addEventListener('click', async function () {
+    const idProduct = document.querySelector('#id_product');
+    const name = document.querySelector('#name').value;
+    const description = document.querySelector('#description').value;
+    const precio = document.querySelector('#precio').value;
     const bannerFileInput = document.querySelector('#banner-form');
     const banner = bannerFileInput.files[0];
 
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('director', director);
-    formData.append('release_date', releaseDate);
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('precio', precio);
     formData.append('banner', banner);
     let result = null;
-    if(idMovie.value!==""){
-      result = await fetchDataWithFile(`${API_SERVER}/api/update_movie/${idMovie.value}/`, 'PUT', formData);
+    if(idProduct.value!==""){
+      result = await fetchDataWithFile(`${API_SERVER}/api/update_product/${idProduct.value}/`, 'PUT', formData);
     }else{
-      result = await fetchDataWithFile(`${API_SERVER}/api/create_movie/`, 'POST', formData);
+      result = await fetchDataWithFile(`${API_SERVER}/api/create_product/`, 'POST', formData);
     }
-    const formMovie = document.querySelector('#form-movie');
-    idMovie.value=''
-    formMovie.reset();
+    const formProduct = document.querySelector('#form-product');
+    idProduct.value=''
+    formProduct.reset();
     alert(result.message);
 
-    showMoviesTable();
+    showProductsTable();
 });
 
   /**
    * Funcion que permite crear un elemento <tr> para la tabla de peliculas
    * por medio del uso de template string de JS.
    */
-  async function showMoviesTable(){
-    let movies =  await fetchData(API_SERVER+'/api/movies/', 'GET');
-    const tableMovies = document.querySelector('#list-table-movies tbody');
-    tableMovies.innerHTML='';
-    movies.forEach((movie, index) => {
+  async function showProductsTable(){
+    let products =  await fetchData(API_SERVER+'/api/products/', 'GET');
+    const tableProducts = document.querySelector('#list-table-products tbody');
+    tableProducts.innerHTML='';
+    products.forEach((product, index) => {
       let tr = `<tr>
-                    <td>${movie.title}</td>
-                    <td>${movie.director}</td>
-                    <td>${movie.release_date}</td>
+                    <td>${product.name}</td>
+                    <td>${product.description}</td>
+                    <td>${product.precio}</td>
                     <td>
-                        <img src="${API_SERVER+movie.banner}" width="30%">
+                        <img src="${API_SERVER+product.banner}" width="30%">
                     </td>
                     <td>
-                        <button class="btn-cac" onclick='updateMovie(${movie.id})'><i class="fa fa-pencil" ></button></i>
-                        <button class="btn-cac" onclick='deleteMovie(${movie.id})'><i class="fa fa-trash" ></button></i>
+                        <button class="btn-cac" onclick='updateProduct(${product.id})'><i class="fa fa-pencil" ></button></i>
+                        <button class="btn-cac" onclick='deleteProduct(${product.id})'><i class="fa fa-trash" ></button></i>
                     </td>
                   </tr>`;
-      tableMovies.insertAdjacentHTML("beforeend",tr);
+      tableProducts.insertAdjacentHTML("beforeend",tr);
     });
   }
   
@@ -81,10 +81,10 @@ document.getElementById('btn-add-movie').addEventListener('click', async functio
    * de acuedo al indice del mismo
    * @param {number} id posición del array que se va a eliminar
    */
-  async function deleteMovie(id){
-    let response = await fetchData(`${API_SERVER}/api/delete_movie/${id}/`, 'DELETE');
+  async function deleteProduct(id){
+    let response = await fetchData(`${API_SERVER}/api/delete_product/${id}/`, 'DELETE');
     console.log(response);
-    showMoviesTable();
+    showProductsTable();
   }
 
   /**
@@ -92,18 +92,18 @@ document.getElementById('btn-add-movie').addEventListener('click', async functio
    * de acuedo al indice del mismo
    * @param {number} id posición del array que se va a eliminar
    */
-  async function updateMovie(id){
-    let response = await fetchData(`${API_SERVER}/api/movies/${id}/`, 'GET');
-    const idMovie = document.querySelector('#id_movie');
-    const title = document.querySelector('#title');
-    const director = document.querySelector('#director');
-    const releaseDate = document.querySelector('#release_date');
+  async function updateProduct(id){
+    let response = await fetchData(`${API_SERVER}/api/products/${id}/`, 'GET');
+    const idProduct = document.querySelector('#id_product');
+    const name = document.querySelector('#name');
+    const descriptiom = document.querySelector('#description');
+    const precio = document.querySelector('#precio');
     
-    idMovie.value = response.id;
-    title.value = response.title;
-    director.value = response.director;
-    releaseDate.value = response.release_date;
+    idProduct.value = response.id;
+    name.value = response.name;
+    description.value = response.description;
+    precio = response.precio;
   }
 
-  showMoviesTable();
+  showProductsTable();
   

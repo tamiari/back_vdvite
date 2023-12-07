@@ -1,0 +1,61 @@
+:root {
+    --dark-green: #234132;
+}
+
+.categorias-grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) ;
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1em;
+    row-gap: 2.5em;
+    justify-content: center;
+    justify-items: center;
+    padding: 0 8vw 0 8vw;
+}
+
+.curso-amig {
+    width: 40vw;
+    height: 60vh;
+    align-items: center;
+    margin-bottom: 0.8em;
+}
+
+.video-curso {
+    border-radius: 1em;
+}
+
+
+.card-cursos-txt {
+    margin-top: 1em;
+}
+
+.card-cursos-txt p {
+    font-weight: 600;
+    color: var(--dark-green);
+}
+
+
+/* PHONES */
+@media(max-width:992px){
+    .categorias-grid-cursos {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr) ;
+        grid-template-rows: repeat(1, 1fr);
+        row-gap: 0.5em;
+        justify-content: center;
+        justify-items: center;
+        padding: 0 8vw 0 8vw;
+    }
+
+    .curso-amig {
+        width: 80vw;
+        height: 40vh;
+        align-items: center;
+        margin-bottom: 0.8em;
+    }
+
+    .video-curso {
+        border-radius: 0.8em;
+    }
+
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Envianos tu mensaje</title>
+</head>
+<body>
+  <section class="form-register">
+    
+
+<h2>Formulario de contacto</h2>
+
+
+
+<form action="https://formsubmit.co/fasegyra@gmail.com" method="POST">
+  <label for="fname">Nombre:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Apellido:</label><br>
+  <input type="text" id="lname" name="lname"><br>
+  <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email"><br><br>
+  <label for="message">Mensaje:</label><br>
+  <textarea id="message" name="message"></textarea><br><br>
+  <input type="submit" value="Enviar">
+  
+</form>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  
+  var fname = document.getElementById("fname").value;
+  var lname = document.getElementById("lname").value;
+  var email = document.getElementById("email").value;
+  
+  if(fname === "" || lname === "" || email === "") {
+    alert("Por favor, rellene todos los campos.");
+    return false;
+  } 
+  
+  if(!validateEmail(email)) {
+    alert("Por favor, introduzca un correo electrónico válido.");
+    return false;
+  }
+  
+  alert("Formulario enviado con éxito!");
+});
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+</script>
+<br>
+<div style=""text-align: right;"> 
+<a href="./index.html">Volver al inicio</a>
+</div>
+</section>
+</body>
+</html>

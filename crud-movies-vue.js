@@ -3,12 +3,12 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-        movies : [],
+        products : [],
         api_server:"http://127.0.0.1:8000",
-        id_movie:'',
-        title:'',
-        director:'',
-        release_date:'',
+        id_product:'',
+        name:'',
+        description:'',
+        precio:'',
         banner:null
     };
   },
@@ -21,7 +21,7 @@ createApp({
         .then((response) => response.json())
         .then((data) => {
             alert("Registro creado:");
-            this.getMovies(`${this.api_server}/api/movies`);
+            this.getProduct(`${this.api_server}/api/products`);
         })
         .catch((error) => {
             console.error("Error al enviar el formulario:", error);
@@ -31,11 +31,11 @@ createApp({
         // Manejar el cambio en el input de tipo file
         this.banner = event.target.files[0];
     },
-    getMovies() {
-      fetch(`${this.api_server}/api/movies`)
+    getProducts() {
+      fetch(`${this.api_server}/api/products`)
         .then((response) => response.json())
         .then((data) => {
-          this.movies = data;
+          this.products = data;
           this.cargando = false;
         })
         .catch((err) => {
@@ -43,16 +43,16 @@ createApp({
           this.error = true;
         });
     },
-    getMovie(id_movie) {
-        fetch(`${this.api_server}/api/movies/${id_movie}/`, {
+    getProduct(id_product) {
+        fetch(`${this.api_server}/api/products/${id_product}/`, {
             method: 'GET',
         })
         .then((response) => response.json())
         .then((data) => {
-            this.id_movie = data.id;
-            this.title = data.title;
-            this.director = data.director,
-            this.release_date = data.release_date
+            this.id_product = data.id;
+            this.name = data.name;
+            this.descriptiom = data.description,
+            this.precio = data.precio
             console.log(data);
         })
         .catch((error) => {
@@ -60,27 +60,27 @@ createApp({
         });
     },
    
-    saveMovie() {
+    saveProduct() {
         const formData = new FormData();
-        formData.append('title', this.title);
-        formData.append('director', this.director);
-        formData.append('release_date', this.release_date);
-        formData.append('banner', this.banner);
-        if(this.id_movie){
-            this.sendFormData(`${this.api_server}/api/update_movie/${this.id_movie}/`, formData,'PUT');
+        formData.append('name', this.name);
+        formData.append('description', this.description);
+        formData.append('precio', this.precio);
+       
+        if(this.id_product){
+            this.sendFormData(`${this.api_server}/api/update_product/${this.id_product}/`, formData,'PUT');
         }else{
-            this.sendFormData(`${this.api_server}/api/create_movie/`, formData,'POST');
+            this.sendFormData(`${this.api_server}/api/create_product/`, formData,'POST');
         }
     },
-    deleteMovie(id_movie) {
+    deleteProduct(id_product) {
         console.log('teasd');
-        fetch(`${this.api_server}/api/delete_movie/${id_movie}/`, {
+        fetch(`${this.api_server}/api/delete_product/${id_product}/`, {
             method: 'DELETE',
         })
         .then((response) => response.json())
         .then((data) => {
             alert("Registro Eliminado");
-            this.getMovies(`${this.api_server}/api/movies`);
+            this.getProducts(`${this.api_server}/api/product`);
         })
         .catch((error) => {
             console.error("Error al eliminar", error);
@@ -88,6 +88,6 @@ createApp({
     },
   },
   created() {
-    this.getMovies();
+    this.getProducts();
   },
 }).mount("#app");

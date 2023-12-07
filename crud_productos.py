@@ -61,7 +61,7 @@ def show_menu():
     print("1. Crear producto")
     print("2. Listar productoss")
     print("3. Modificar producto")
-    print("4. Eliminar producto")
+    print("4. Eliminar producto")1
     print("5. Salir")
 
 productos = []
@@ -77,7 +77,7 @@ while option != 5:
     elif option == 3:
         update_producto(productos)
     elif option == 4:
-        delete_producto(productos
+        delete_producto(productos)
     elif option == 5:
         print('Finalizó el programa!')
     else:
