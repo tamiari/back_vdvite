@@ -6,9 +6,16 @@
 #         'precio': 12000,
 #     }
 # ]
+import mysql.connector
 
 def create_producto(products):
-    
+    mydb =mysql.connector.connect(
+        host="localhost",
+        user="root",
+        database="verdevioleta"
+    )
+    mycursor = mydb.cursor()
+
     id_product = len(products) + 1
     name = input('Ingrese nombre del producto: ')
     description = input('Ingrese descripcion: ')
@@ -16,17 +23,23 @@ def create_producto(products):
     
     product = {
         'id_product': id_product,
-        'nombre': name,
-        'descripcion': description,
+        'name': name,
+        'description': description,
         'precio': precio,
     }
-    products.append(products)
+    sql = "INSERT INTO products (id_product, name, description, precio) VALUES (%s, %s, %s, %s)"
+    val = (id_product, name, description, precio)
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
     print(f'Producto: {name} creado exitosamente.')
+    
+    #products.append(products)
+    #print(f'Producto: {name} creado exitosamente.')
 
 def read_productos(products):
-    """
-       listar 
-    """
+    
     if len(products) == 0:
         print('No hay productos registrados')
     else:
@@ -34,13 +47,13 @@ def read_productos(products):
         for product in products:
             print(f"Id: {product['id_product']}, Nombre: {product['name']},Descripcion: {product['description']},Precio: {product['precio']}")
 
-def update_producto(productos):
+def update_producto(products):
     id_product = int(input('Ingrese el ID del producto a modificar: '))
-    for producto in productos:
-        if producto['id_product'] == id_product:
-            producto['name'] = input('Ingrese nuevo nombre del producto: ')
-            producto['description'] = int(input('Ingrese nueva descripcion: '))
-            producto['precio'] = input('Ingrese nuevo precio: ').split(',')
+    for product in productos:
+        if product['id_product'] == id_product:
+            product['name'] = input('Ingrese nuevo nombre del producto: ')
+            product['description'] = int(input('Ingrese nueva descripcion: '))
+            product['precio'] = input('Ingrese nuevo precio: ').split(',')
             print(f"Producto con Id {id_product} fue modificado con éxito.")
             return
         
@@ -59,9 +72,9 @@ def delete_producto(productos):
 def show_menu():
     print("\n --- Menú ---")
     print("1. Crear producto")
-    print("2. Listar productoss")
+    print("2. Listar productos")
     print("3. Modificar producto")
-    print("4. Eliminar producto")1
+    print("4. Eliminar producto")
     print("5. Salir")
 
 productos = []
