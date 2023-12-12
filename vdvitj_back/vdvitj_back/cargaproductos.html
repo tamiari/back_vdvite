@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./Static/img/favicon.ico" type="image/x-icon">
+    
+    <!-- Agregar fontawesome -->
+    <script src="https://kit.fontawesome.com/412cb7d776.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="./Static/css/style.css">
+    <title>Verdevioleta Tejidos</title>
+</head>
+<body>
+    <header>
+        <div class="hd-logo"><center><img src="./Static/img/verdevioleta_logo.png" alt="logo de Verdevioleta Tejidos" class="logo"></center></div>
+        <div class="header">
+            <nav>
+                    <ul class="nav-links">
+                        <li><a href={% url 'quienessomos' %}>Quiénes somos</a></li>
+                        <li><a href={% url 'producto' %}>Productos</a></li>
+                        <li><a href={% url 'cursos' %}>Cursos</a></li>
+                        <li><a href={% url 'contacto'}>Contacto</a></li>
+                    </ul>
+                        <div class="buttons-btn">
+                            <div id="btn-vervio1"><a href="#">Iniciar Sesión</a></div>
+                            <div id="btn-vervio2"><a href="./formularios.html">Registrarse</a></div>
+                        </div>
+            </nav>
+        </div>
+        <div id="top">
+            
+        </div>
+    </header>
+    <main>
+        <section class="page-title">
+            <h1>Nuestros amigurumis</h1>
+    
+            <form action="" id="products-form" style="margin-left: 25%;">
+                <div>
+                    <div>
+                        <label for="">Imagen</label>
+                        <input type="file" class="carga-btn" style="color: darkgreen; height: 3vw; margin-left: 1em;">
+                    </div>
+                    <div>
+                        <label for="">Nombre del producto</label>
+                        <input type="text" name="" id="" class="form-space" style="border: 1px solid darkgreen; height: 2vw; width: 40% ; margin-left: 1em; margin-bottom: 0.5em;">
+                    </div>
+                    <div>
+                        <label for="">Descripción</label>
+                        <input type="text" name="description" id="description"  class="form-space" style="border: 1px solid darkgreen; height: 2vw; width: 40%; height: 10em; margin-left: 1em; margin-bottom: 0.5em;">
+                    </div>
+                    <div>
+                        <label for="">Precio</label>
+                        <input type="text" name="" id=""  class="form-space" style="border: 1px solid darkgreen; height: 2vw; width: 10% ; margin-left: 1em; margin-bottom: 0.5em;">
+                    </div>
+                    <input type="hidden" class="" name="id" id="id_product">
+                    <button class="button-add" style="background-color: darkgreen; color: #fff; font-size: 1em; padding: 0.3em;" type="button" id="button-add-product">Agregar</button>
+                </div>
+            </form>   
+        </section>
+
+        <section>
+            <h1>Lista de productos</h1>
+            <table id="product-list" class="table" style="margin-left: 25%;">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <div id="product-list-final">
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-logo"><img src="./Static/img/verdevioleta_logo_footer.png" alt="logo de Verdevioleta" id="img-footer"></div>
+        <div class="footer-menu">
+            <ul id="footer-links">
+                <li><a href="quienesSomos.html">Quiénes somos</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                
+            </ul>
+            <p id="social-media-footer"><i class="fa-brands fa-instagram fa-beat"></i> Seguinos en Instagram</p>
+            <p id="copy-footer">(c) 2023 – Verde Violeta Tejidos</p>
+        </div>
+    </footer>
+    <script src="./Static/js/crud-products.js"></script>
+</body>
+</html>
